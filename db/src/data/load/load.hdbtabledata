@@ -1,0 +1,495 @@
+{
+  "format_version": 1,
+  "imports": 
+   [{
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::clasificacionproductos.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDCLASIFICACIONPRODUCTO", 
+           "NOMBRECLASIFICACION"
+        ]
+     },
+     "column_mappings" : {
+        "IDCLASIFICACIONPRODUCTO" : 1, 
+        "NOMBRECLASIFICACION" : 2
+     },
+     "target_table" : "HorusDatabase.db.data.METADATA::CLASIFICACIONPRODUCTOS"  
+    },
+    
+    {
+    "source_data" : { 
+       "data_type" : "CSV",
+       "file_name" : "HorusDatabase.db.data.load::proveedores.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDPROVEEDOR", 
+           "NOMBRECOMPANIA",
+           "DIRECCION",
+           "CIUDAD",
+           "REGION",
+           "PAIS",
+           "CODIGOPOSTAL"
+        ]
+     },
+     "column_mappings" : {
+        "IDPROVEEDOR" : 1, 
+        "NOMBRECOMPANIA" : 2,
+        "DIRECCION": 3,
+        "CIUDAD": 4,
+        "REGION" : 5,
+        "PAIS" : 6,
+        "CODIGOPOSTAL" : 7
+     }, 
+     "target_table" : "HorusDatabase.db.data.METADATA::PROVEEDORES"  
+    },
+    {
+    "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::productos.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+     "column_mappings" : {
+        "IDPRODUCTO" : 1, 
+        "NOMBRE" : 2,
+        "NOMBRECOMERCIAL": 3,
+        "CLASIFICACIONPRODUCTOS.IDCLASIFICACIONPRODUCTO": 4,
+        "CANTIDADMINIMA" : 5,
+        "UNIDADDEMEDIDA" : 6,
+        "FORMAFARMACEUTICA" : 7,
+        "VALORIVA" : 8,
+        "PROVEEDORES.IDPROVEEDOR" : 9
+     }, 
+     "import_settings" : {
+     "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDPRODUCTO", 
+           "NOMBRE",
+           "NOMBRECOMERCIAL",
+           "CLASIFICACIONPRODUCTOS.IDCLASIFICACIONPRODUCTO",
+           "CANTIDADMINIMA",
+           "UNIDADDEMEDIDA",
+           "FORMAFARMACEUTICA",
+           "VALORIVA",
+           "PROVEEDORES.IDPROVEEDOR"
+        ]
+     },
+     
+     "target_table" : "HorusDatabase.db.data.METADATA::PRODUCTOS"  
+    },
+    
+    
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::usuarios.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDUSUARIO", 
+           "NOMBREDEUSUARIO"
+        ]
+     },
+     "column_mappings" : {
+        "IDUSUARIO" : 1, 
+        "NOMBREDEUSUARIO" : 2
+     },
+     "target_table" : "HorusDatabase.db.data.USUARIOS::USUARIOS"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::pedidos.header.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDPEDIDO", 
+           "FECHADEGENERACION",
+           "REALIZADOPOR",
+           "BODEGADESTINO",
+           "AREA",
+           "PROVEEDORES.IDPROVEEDOR",
+           "REVISADOPOR",
+           "REVISADO",
+           "ENTREGADO"
+        ]
+     },
+     "column_mappings" : {
+        "IDPEDIDO" : 1, 
+        "FECHADEGENERACION" : 2,
+        "REALIZADOPOR" : 3,
+        "BODEGADESTINO" : 4,
+        "AREA" : 5,
+        "PROVEEDORES.IDPROVEEDOR" : 6,
+        "REVISADOPOR" : 7,
+        "REVISADO" : 8,
+        "ENTREGADO" : 9
+     },
+     "target_table" : "HorusDatabase.db.data.PEDIDOS::PEDIDOS.HEADER"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::pedidos.item.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDITEM", 
+           "HEADER.IDPEDIDO",
+           "PRODUCTOS.IDPRODUCTO",
+           "CANTIDADSOLICITADA"
+        ]
+     },
+     "column_mappings" : {
+        "IDITEM" : 1, 
+           "HEADER.IDPEDIDO" : 2,
+           "PRODUCTOS.IDPRODUCTO" : 3,
+           "CANTIDADSOLICITADA" : 4
+     },
+     "target_table" : "HorusDatabase.db.data.PEDIDOS::PEDIDOS.ITEM"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::ordenesdecompra.header.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDORDENDECOMPRA",
+           "FECHADEGENERACION",
+           "REALIZADOPOR",
+           "APROBADOPOR",
+           "REVISADOPOR",
+           "BODEGADESTINO",
+           "TERMINOSENTREGA",
+           "TERMINOSPAGO",
+           "CARGADA",
+           "CERRADA",
+           "PROVEEDORES.IDPROVEEDOR",
+           "PEDIDOS.HEADER.IDPEDIDO"
+        ]
+     },
+     "column_mappings" : {
+        "IDORDENDECOMPRA" : 1,
+        "FECHADEGENERACION" : 2,
+        "REALIZADOPOR" : 3,
+        "APROBADOPOR" : 4,
+        "REVISADOPOR" : 5,
+        "BODEGADESTINO" : 6,
+        "TERMINOSENTREGA" : 7,
+        "TERMINOSPAGO" : 8,
+        "CARGADA" : 9,
+        "CERRADA" : 10,
+        "PROVEEDORES.IDPROVEEDOR" : 11,
+        "PEDIDOS.HEADER.IDPEDIDO" : 12
+     },
+     "target_table" : "HorusDatabase.db.data.ORDENESDECOMPRA::ORDENESDECOMPRA.HEADER"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::ordenesdecompra.item.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDITEM",
+           "HEADER.IDORDENDECOMPRA",
+           "PRODUCTOS.IDPRODUCTO",
+           "PEDIDOS.ITEM.IDITEM",
+           "CANTIDADSOLICITADA",
+           "CANTIDADPENDIENTE",
+           "VALORUNITARIO",
+           "VALORUNITARIOIVA",
+           "VALORTOTAL",
+           "VALORTOTALIVA"
+        ]
+     },
+     "column_mappings" : {
+        "IDITEM" : 1,
+        "HEADER.IDORDENDECOMPRA" : 2,
+        "PRODUCTOS.IDPRODUCTO" : 3,
+        "PEDIDOS.ITEM.IDITEM" : 4,
+        "CANTIDADSOLICITADA" : 5,
+        "CANTIDADPENDIENTE" : 6,
+        "VALORUNITARIO" : 7,
+        "VALORUNITARIOIVA" : 8,
+        "VALORTOTAL" : 9,
+        "VALORTOTALIVA" : 10
+     },
+     "target_table" : "HorusDatabase.db.data.ORDENESDECOMPRA::ORDENESDECOMPRA.ITEM"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::ordenesdeingreso.header.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDORDENDEINGRESO",
+           "ORDENESDECOMPRA.HEADER.IDORDENDECOMPRA",
+           "FECHADEGENERACION",
+           "REALIZADOPOR",
+           "REMISION",
+           "NUMEROFACTURA",
+           "NUMEROREMISION"
+        ]
+     },
+     "column_mappings" : {
+        "IDORDENDEINGRESO" : 1,
+        "ORDENESDECOMPRA.HEADER.IDORDENDECOMPRA" : 2,
+        "FECHADEGENERACION" : 3,
+        "REALIZADOPOR" : 4,
+        "REMISION" : 5,
+        "NUMEROFACTURA" : 6,
+        "NUMEROREMISION" : 7
+     },
+     "target_table" : "HorusDatabase.db.data.ORDENESDEINGRESO::ORDENESDEINGRESO.HEADER"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::ordenesdeingreso.item.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDITEM",
+           "HEADER.IDORDENDEINGRESO",
+           "ORDENESDECOMPRA.ITEM.IDITEM" ,
+           "CANTIDADINGRESADA",
+           "LOTE"
+        ]
+     },
+     "column_mappings" : {
+        "IDITEM" : 1,
+        "HEADER.IDORDENDEINGRESO" : 2,
+        "ORDENESDECOMPRA.ITEM.IDITEM" : 3,
+        "CANTIDADINGRESADA" : 4,
+        "LOTE" : 5
+     },
+     "target_table" : "HorusDatabase.db.data.ORDENESDEINGRESO::ORDENESDEINGRESO.ITEM"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::insumos.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        }
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDINSUMO",
+           "CANTIDADINICIAL",
+           "CANTIDADRESTANTE",
+           "LOTE",
+           "FECHADEVENCIMIENTO",
+           "FECHADECARGA",
+           "BODEGA",
+           "VALORUNITARIO",
+           "VALORUNITARIOIVA",
+           "VALORTOTAL",
+           "VALORTOTALIVA",
+           "PRODUCTOS.IDPRODUCTO",
+           "ORDENESDEINGRESO.ITEM.IDITEM"
+        ]
+     },
+     "column_mappings" : {
+        "IDINSUMO" : 1,
+        "CANTIDADINICIAL" : 2,
+        "CANTIDADRESTANTE" : 3,
+        "LOTE" : 4,
+        "FECHADEVENCIMIENTO" : 5,
+        "FECHADECARGA" : 6,
+        "BODEGA" : 7,
+        "VALORUNITARIO" : 8,
+        "VALORUNITARIOIVA" : 9,
+        "VALORTOTAL" : 10,
+        "VALORTOTALIVA" : 11,
+        "PRODUCTOS.IDPRODUCTO" : 12,
+        "ORDENESDEINGRESO.ITEM.IDITEM" : 13
+     },
+     "target_table" : "HorusDatabase.db.data.INSUMOS::INSUMOS.ITEM"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::cirugias.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        }
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDCIRUGIA",
+           "NOMBRECIRUGIA"
+        ]
+     },
+     "column_mappings" : {
+        "IDCIRUGIA" : 1,
+        "NOMBRECIRUGIA" : 2
+     },
+     "target_table" : "HorusDatabase.db.data.HOJASDEGASTO::CIRUGIAS"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::hojasdegasto.header.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        }
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "IDHOJADEGASTO",
+           "NOMBREPACIENTE",
+           "OJO",
+           "IDCIRUGIA",
+           "FECHAPROCEDIMIENTO",
+           "ESTATUS"
+        ]
+     },
+     "column_mappings" : {
+        "IDHOJADEGASTO" : 1,
+        "NOMBREPACIENTE" : 2,
+        "OJO" : 3,
+        "IDCIRUGIA" : 4,
+        "FECHAPROCEDIMIENTO" : 5,
+        "ESTATUS" : 6
+     },
+     "target_table" : "HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.HEADER"
+    },
+    {
+   "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "HorusDatabase.db.data.load::hojasdegasto.item.csv", 
+       "has_header" : false,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        }
+      },
+      "import_settings" : {
+      "include_filter" : [ ],	
+        "import_columns" : [ 
+           "HEADER.IDHOJADEGASTO",
+           "ITEM.IDITEM",
+           "IDINSUMO",
+           "CANTIDADENTREGADA",
+           "CANTIDADGASTADA",
+           "MODIFICABLE",
+           "REVISADO",
+           "OBSERVACIONES"
+        ]
+     },
+     "column_mappings" : {
+        "HEADER.IDHOJADEGASTO" : 1,
+        "ITEM.IDITEM" : 2,
+        "IDINSUMO" : 3,
+        "CANTIDADENTREGADA" : 4,
+        "CANTIDADGASTADA" : 5,
+        "MODIFICABLE" : 6,
+        "REVISADO" : 7,
+        "OBSERVACIONES" : 8
+     },
+     "target_table" : "HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.ITEM"
+    }
+   ] 
+}
