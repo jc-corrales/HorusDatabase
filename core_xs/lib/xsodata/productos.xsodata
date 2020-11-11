@@ -1,0 +1,3 @@
+service {
+	"HorusDatabase.db.data.METADATA::PRODUCTOS" as "productos";
+}

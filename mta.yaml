@@ -8,6 +8,21 @@ modules:
     path: db
     requires:
       - name: hdi_db
+  - name: core_xs
+    type: nodejs
+    path: core_xs
+    provides:
+      - name: core_xs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UAA-service
+      - name: db
+      - name: hdi_db
+    properties:
+      name: core_xs
+      url: '~{url}'
+      forwardAuthToken: true
 resources:
   - name: hdi_db
     parameters:
@@ -17,3 +32,5 @@ resources:
     properties:
       hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
+  - name: UAA-service
+    type: com.sap.xs.uaa-space
