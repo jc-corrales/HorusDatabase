@@ -1,4 +1,5 @@
 service{
 	"HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.ITEM" as "hojasdegastoitem";
-	"HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.HEADER" as "hojasdegastoheader";
+	"HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.HEADER" as "hojasdegastoheader" navigates ("hojasdegasto_header_items" as "hojasdegastoitems");
+	association "hojasdegasto_header_items" principal "hojasdegastoheader"("IDHOJADEGASTO") multiplicity "1" dependent "hojasdegastoitem"("HEADER.IDHOJADEGASTO") multiplicity "*";
 }

@@ -1,0 +1,20 @@
+service{
+	"HorusDatabase.db.data.INSUMOS::INSUMOS.ITEM" as "insumos";
+	"HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.ITEM" as "hojasdegastoitem";
+	"HorusDatabase.db.data.PEDIDOS::PEDIDOS.ITEM" as "pedidositem";
+	"HorusDatabase.db.data.ORDENESDECOMPRA::ORDENESDECOMPRA.ITEM" as "ordenesdecompraitem";
+	"HorusDatabase.db.data.ORDENESDEINGRESO::ORDENESDEINGRESO.ITEM" as "ordenesdeingresoitem";
+	"HorusDatabase.db.data.METADATA::PRODUCTOS" as "productos" navigates ("productos_insumos" as "productos_insumos");
+	"HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.HEADER" as "hojasdegastoheader" navigates ("hojasdegasto_header_items" as "hojasdegastoitems");
+	"HorusDatabase.db.data.METADATA::CLASIFICACIONPRODUCTOS" as "clasificacionproductos" navigates ("clasificacionproductos_productos" as "clasificacionproductos_productos");
+	"HorusDatabase.db.data.PEDIDOS::PEDIDOS.HEADER" as "pedidosheader" navigates ("pedidos_header_items" as "pedidos_header_items");
+	"HorusDatabase.db.data.ORDENESDECOMPRA::ORDENESDECOMPRA.HEADER" as "ordenesdecompraheader" navigates("ordenesdecompra_header_items" as "ordenesdecompra_header_items");
+	"HorusDatabase.db.data.ORDENESDEINGRESO::ORDENESDEINGRESO.HEADER" as "ordenesdeingresoheader" navigates("ordenesdeingreso_header_items" as "ordenesdeingreso_header_items");
+	
+	association "clasificacionproductos_productos" principal "clasificacionproductos"("IDCLASIFICACIONPRODUCTO") multiplicity "1" dependent "productos"("CLASIFICACIONPRODUCTOS.IDCLASIFICACIONPRODUCTO") multiplicity "*";
+	association "hojasdegasto_header_items" principal "hojasdegastoheader"("IDHOJADEGASTO") multiplicity "1" dependent "hojasdegastoitem"("HEADER.IDHOJADEGASTO") multiplicity "*";
+	association "productos_insumos" principal "productos"("IDPRODUCTO") multiplicity "1" dependent "insumos"("PRODUCTOS.IDPRODUCTO") multiplicity "*";
+	association "pedidos_header_items" principal "pedidosheader"("IDPEDIDO") multiplicity "1" dependent "pedidositem"("HEADER.IDPEDIDO") multiplicity "*";
+	association "ordenesdecompra_header_items" principal "ordenesdecompraheader"("IDORDENDECOMPRA") multiplicity "1" dependent "ordenesdecompraitem"("HEADER.IDORDENDECOMPRA") multiplicity "*";
+	association "ordenesdeingreso_header_items" principal "ordenesdeingresoheader"("IDORDENDEINGRESO") multiplicity "1" dependent "ordenesdeingresoitem"("HEADER.IDORDENDEINGRESO") multiplicity "*";
+}
