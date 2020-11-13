@@ -1,0 +1,4 @@
+service{
+	"HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.ITEM" as "hojasdegastoitem";
+	"HorusDatabase.db.data.HOJASDEGASTO::HOJASDEGASTO.HEADER" as "hojasdegastoheader";
+}

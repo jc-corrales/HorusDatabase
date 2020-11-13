@@ -1,3 +1,6 @@
 service {
-	"HorusDatabase.db.data.METADATA::PRODUCTOS" as "productos";
+
+	"HorusDatabase.db.data.INSUMOS::INSUMOS.ITEM" as "insumos";
+	"HorusDatabase.db.data.METADATA::PRODUCTOS" as "productos" navigates ("productos_insumos" as "productos_insumos");
+	association "productos_insumos" principal "productos"("IDPRODUCTO") multiplicity "1" dependent "insumos"("PRODUCTOS.IDPRODUCTO") multiplicity "*";
 }
