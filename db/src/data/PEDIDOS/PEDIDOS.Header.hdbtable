@@ -6,8 +6,8 @@ COLUMN TABLE "HorusDatabase.db.data.PEDIDOS::PEDIDOS.HEADER" (
      "AREA" NVARCHAR(50) NOT NULL COMMENT 'Area de destino del pedido',
      "PROVEEDORES.IDPROVEEDOR" INTEGER CS_INT NOT NULL COMMENT 'ID del proveedor',
      "REVISADOPOR" INTEGER CS_INT COMMENT 'Nombre de la persona que revisa el pedido',
-	 "REVISADO" BOOLEAN NOT NULL COMMENT 'Si ya se reviso el pedido',
-	 "ENTREGADO" BOOLEAN NOT NULL COMMENT 'Si ya se entrego el pedido',
+	 "REVISADO" INTEGER NOT NULL COMMENT 'Si ya se reviso el pedido',
+	 "ENTREGADO" INTEGER NOT NULL COMMENT 'Si ya se entrego el pedido',
 	 PRIMARY KEY ("IDPEDIDO"))
 	 WITH ASSOCIATIONS(JOIN "HorusDatabase.db.data.USUARIOS::USUARIOS" AS "USUARIOS" ON "USUARIOS"."IDUSUARIO" = "REALIZADOPOR" AND "USUARIOS"."IDUSUARIO" = "REVISADOPOR"
 	 )

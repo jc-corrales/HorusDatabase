@@ -23,6 +23,11 @@ modules:
       name: core_xs
       url: '~{url}'
       forwardAuthToken: true
+
+  - name: ModuloProductosInventario
+    type: html5
+    path: ModuloProductosInventario
+
 resources:
   - name: hdi_db
     parameters:

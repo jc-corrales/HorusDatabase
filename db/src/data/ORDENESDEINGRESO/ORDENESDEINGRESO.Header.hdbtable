@@ -3,7 +3,7 @@ COLUMN TABLE "HorusDatabase.db.data.ORDENESDEINGRESO::ORDENESDEINGRESO.HEADER" (
      "ORDENESDECOMPRA.HEADER.IDORDENDECOMPRA" INTEGER CS_INT NOT NULL COMMENT 'ID de la orden de compra asociada',
      "FECHADEGENERACION" DATE CS_DAYDATE NOT NULL COMMENT 'Fecha de generacion de pedido',
      "REALIZADOPOR" INTEGER CS_INT NOT NULL COMMENT 'Nombre de la persona que realiza el pedido',
-     "REMISION" BOOLEAN NOT NULL COMMENT 'Si el ingreso es una remisión o no',
+     "REMISION" INTEGER NOT NULL COMMENT 'Si el ingreso es una remisión o no',
      "NUMEROFACTURA" NVARCHAR(100) NOT NULL COMMENT 'Numero de factura',
      "NUMEROREMISION" NVARCHAR(100) NOT NULL COMMENT 'Numero de remision',
 	 PRIMARY KEY ("IDORDENDEINGRESO"))

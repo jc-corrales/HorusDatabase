@@ -7,8 +7,8 @@ COLUMN TABLE "HorusDatabase.db.data.ORDENESDECOMPRA::ORDENESDECOMPRA.HEADER" (
      "BODEGADESTINO" NVARCHAR(50) NOT NULL COMMENT 'Bodega de destino del pedido',
      "TERMINOSENTREGA" NVARCHAR(50) NOT NULL COMMENT 'Terminos de entrega de la orden de compra',
      "TERMINOSPAGO" NVARCHAR(50) NOT NULL COMMENT 'Terminos de pago de la orden de compra',
-	 "CARGADA" BOOLEAN NOT NULL COMMENT 'Si la orden de compra ya fue cargada',
-	 "CERRADA" BOOLEAN NOT NULL COMMENT 'Si la orden de compra ya fue cerrada',
+	 "CARGADA" INTEGER NOT NULL COMMENT 'Si la orden de compra ya fue cargada',
+	 "CERRADA" INTEGER NOT NULL COMMENT 'Si la orden de compra ya fue cerrada',
 	 "PROVEEDORES.IDPROVEEDOR" INTEGER CS_INT NOT NULL COMMENT 'ID del proveedor',
 	 "PEDIDOS.HEADER.IDPEDIDO" INTEGER CS_INT NOT NULL COMMENT 'ID del Pedido asociado',
 	 PRIMARY KEY ("IDORDENDECOMPRA"))

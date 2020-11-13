@@ -3,7 +3,7 @@ COLUMN TABLE "HorusDatabase.db.data.ORDENESDESALIDA::ORDENESDESALIDA.HEADER" (
      "HOJASDEGASTO.HEADER.IDHOJADEGASTO" INTEGER CS_INT COMMENT 'ID de la hoja de gasto asociada, si aplica',
      "FECHADEGENERACION" DATE CS_DAYDATE NOT NULL COMMENT 'Fecha de generacion de la orden de salida',
      "REALIZADOPOR" NVARCHAR(50) NOT NULL COMMENT 'Nombre de la persona que realiza la orden de salida',
-     "ESTADOENVIO" BOOLEAN NOT NULL COMMENT 'Si ya se envio la orden de salida o no',
+     "ESTADOENVIO" INTEGER NOT NULL COMMENT 'Si ya se envio la orden de salida o no',
      "ORIGEN" NVARCHAR(50) NOT NULL COMMENT 'Bodega de origen de la orden de salida',
      "DESTINO" NVARCHAR(200) NOT NULL COMMENT 'Persona o lugar de destino de la salida',
 	 PRIMARY KEY ("IDORDENDESALIDA"))
